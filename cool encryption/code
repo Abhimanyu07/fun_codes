@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<string.h>
+void decode(char mess[])
+{  int j= strlen(mess)-1;
+    for(int i=0;mess[i]!='\0';i++,j--)
+    {
+        if(mess[i]!=" ")
+        printf("%c",mess[i]-j);
+        else 
+        printf(" ");
+    }
+}
+void encode(char mess[])
+{
+    int j= strlen(mess)-1;
+    for(int i=0;mess[i]!='\0';i++,j--)
+    {
+        if(mess[i]!=" ")
+        {
+            printf("%c",mess[i]+j);
+        }
+        else 
+        printf(" ");
+    }
+}
+main()
+{
+    int ch;
+    char mess[30];
+    while(1)
+    {
+        
+    printf("\nenter the message:");
+    scanf("%s",&mess);
+    printf("\n1. decode \n2. encode \n3. exit\n");
+    printf("enter choice: ");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+        case 1: decode(mess); break;
+        case 2: encode(mess); break;
+        case 3: exit(0); 
+        default: printf("error");
+    }
+    }
+}
